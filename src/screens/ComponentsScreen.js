@@ -15,7 +15,8 @@ const ComponentsScreen = () => {
 const styles = StyleSheet.create({
   textStyle: {
     fontSize: 30
-  }
+  },
+  headerFontSize: 45
 });
 
 export default ComponentsScreen;
