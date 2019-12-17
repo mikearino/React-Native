@@ -3,26 +3,28 @@ import { View, Text, StyleSheet, FlatList } from "react-native";
 
 const ListScreen = () => {
   const catNames = [
-    { name: "Jimbo" },
-    { name: "Beavis" },
-    { name: "Chad" },
-    { name: "Beemo" },
-    { name: "Chrissy" },
-    { name: "A1" },
-    { name: "Pizza Man" },
-    { name: "Donut" },
-    { name: "Chester" },
-    { name: "Wanda" }
+    { name: "Jimbo", age: 34 },
+    { name: "Beavis", age: 3874 },
+    { name: "Chad", age: 3584 },
+    { name: "Beemo", age: 378654 },
+    { name: "Chrissy", age: 384 },
+    { name: "A1", age: 3674 },
+    { name: "Pizza Man", age: 385 },
+    { name: "Donut", age: 3 },
+    { name: "Chester", age: 4 },
+    { name: "Wanda", age: 33 }
   ];
 
   return (
     <FlatList
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      keyExtractor={friend => friend.name}
+      keyExtractor={cat => cat.name}
       data={catNames}
       renderItem={({ item }) => {
-        return <Text style={styles.textStyle}>{item.name}</Text>;
+        return (
+          <Text style={styles.textStyle}>
+            The cat name is {item.name} and the age of the cat is {item.age}
+          </Text>
+        );
       }}
     />
   );
