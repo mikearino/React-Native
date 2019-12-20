@@ -8,24 +8,44 @@ const SquareScreen = () => {
   const [red, setRed] = useState(0);
   const [green, setGreen] = useState(0);
   const [blue, setBlue] = useState(0);
-  console.log(red);
+  console.log("red");
+
+  const setColor = (color, change) => {
+    // color is goin to be equal to red green or blue
+    //change is going to be +15 or minus 15
+    switch (color) {
+      case "red":
+        red + change > 255 || red + change < 0 ? null : setRed(red + change);
+        return;
+      case "blue":
+        blue + change > 255 || blue + change < 0
+          ? null
+          : setBlue(blue + change);
+        return;
+      case "green":
+        green + change > 255 || green + change < 0
+          ? null
+          : setGreen(green + change);
+        return;
+    }
+  };
 
   return (
     <View>
       <ColorCounter
-        onIncrease={() => setRed(red + COLOR_INCREMENT)}
-        onDecrease={() => setRed(red - COLOR_INCREMENT)}
-        color="Red"
+        onIncrease={() => setColor("red", COLOR_INCREMENT)}
+        onDecrease={() => setColor("red", -1 * COLOR_INCREMENT)}
+        color="red"
       />
       <ColorCounter
-        onIncrease={() => setBlue(blue + COLOR_INCREMENT)}
-        onDecrease={() => setBlue(blue - COLOR_INCREMENT)}
-        color="Blue"
+        onIncrease={() => setBlue("blue", COLOR_INCREMENT)}
+        onDecrease={() => setBlue("blue" - 1 * COLOR_INCREMENT)}
+        color="blue"
       />
       <ColorCounter
-        onIncrease={() => setGreen(green + COLOR_INCREMENT)}
-        onDecrease={() => setGreen(green - COLOR_INCREMENT)}
-        color="Green"
+        onIncrease={() => setGreen("green", COLOR_INCREMENT)}
+        onDecrease={() => setGreen("green" - 1 * COLOR_INCREMENT)}
+        color="green"
       />
       <View
         style={{
